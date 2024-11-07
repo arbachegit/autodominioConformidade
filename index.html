@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fale com o RISK Autodomínio ou Conformidade</title>
+  <title>Fale com o RISK Autodomínio e Conformidade V2</title>
   <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
   <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
   <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
@@ -40,7 +40,7 @@
       width: 20px;
       height: 20px;
       flex-shrink: 0;
-      transform: rotate(45deg); /* Update 1 */
+      transform: rotate(45deg);
     }
   </style>
 </head>
@@ -63,21 +63,25 @@
     ];
 
     const ANSWERS = [
-      { character: 'Ana', text: 'Busco equilibrar tarefas e inovação, mantendo a calma e priorizando para não comprometer a qualidade.', competency: 1 },
-      { character: 'Cris', text: 'Avalio o que pode ser ajustado para que eu consiga inovar sem prejudicar minhas responsabilidades diárias.', competency: 2 },
+	//respostas 1
+ 		{ character: 'Ana', text: 'Busco equilibrar tarefas e inovação, mantendo a calma e priorizando para não comprometer a qualidade.', competency: 1 },
+      	{ character: 'Rui', text: 'Avalio o que pode ser ajustado para que eu consiga inovar sem prejudicar minhas responsabilidades diárias.', competency: 2 },
 	  
+	//respostas 2
       { character: 'Rui', text: 'Analiso se a mudança é realmente necessária antes de me comprometer com novas práticas.', competency: 2 },
       { character: 'Cris', text: 'Entendo que correr riscos pode ser positivo e estou disposto a adaptar meu trabalho se isso trouxer melhorias.', competency: 1 },
 	  
+	//respostas 3
       { character: 'Ana', text: 'Mantenho meu foco, independente do reconhecimento, pois sei que o esforço contribui para a equipe.', competency: 1 },
       { character: 'Rui', text: 'Reflito sobre o impacto do meu trabalho e procuro valorizar a contribuição para minha própria evolução.', competency: 2 },
 	  
+	//respostas 4  
       { character: 'Ana', text: 'Procuro manter a calma e agir com responsabilidade, mesmo que esteja motivado.', competency: 1 },
       { character: 'Cris', text: 'Sigo a empolgação e começo a implementar as ideias, sem me preocupar tanto com um plano mais cuidadoso.', competency: 2 }
     ];
 
     function ResultExplanation({ competencyScore }) {
-      const CharacterAvatar = ({ character }) => ( /* Update 5 */
+      const CharacterAvatar = ({ character }) => (
         <div className={`character-avatar ${CHARACTERS[character].color}`}>
           {CHARACTERS[character].emoji}
         </div>
@@ -94,7 +98,7 @@
           const score2 = competencyScore[2];
           let newExplanation = '';
 
-          if (score1 > score2) {
+           if (score1 > score2) {
             newExplanation = "A dominância Conformidade pode melhorar com as seguintes ações: ser mais cauteloso, fazer tudo com prudência, refletir mais em tudo que for realizar e, apesar de ser contraditório, as vezes ter um pouco de impulsividade.";
           } else if (score2 > score1) {
             newExplanation = "A dominância Autodomínio pode melhorar com as seguintes ações: use mais a sua inteligência emocional, aceite mais riscos, pois inovar está associado a isto, nunca desista, seja resiliente e busque sempre o equilíbrio das emoções.";
@@ -129,11 +133,11 @@
       return (
         <div className="mt-4">
           {!showExplanation && !isLoading && (
-            <div className="flex justify-start"> {/* Update 2 */}
-              <div className="flex items-start space-x-2 bg-gray-200 rounded-lg p-2"> {/* Update 2 */}
-                <CharacterAvatar character="Risk" /> {/* Update 2 */}
-                <div className="flex flex-col"> {/* Update 2 */}
-                  <p className="font-semibold">Risk</p> {/* Update 2 */}
+            <div className="flex justify-start">
+              <div className="flex items-start space-x-2 bg-gray-200 rounded-lg p-2">
+                <CharacterAvatar character="Risk" />
+                <div className="flex flex-col">
+                  <p className="font-semibold">Risk</p>
                   <button
                     onClick={handleExplanationRequest}
                     className="bg-blue-500 text-white rounded-lg p-2 flex items-center space-x-2 hover:bg-blue-600 transition-colors"
@@ -141,53 +145,52 @@
                     <span>Quer que eu explique o resultado?</span>
                     <PaperPlaneIcon />
                   </button>
-                </div> {/* Update 2 */}
-              </div> {/* Update 2 */}
+                </div>
+              </div>
             </div>
           )}
           {isLoading && <TypingIndicator />}
           {showExplanation && (
-            <div className="space-y-4"> {/* Update 3 */}
-              <div className="flex justify-start"> {/* Update 3 */}
-                <div className="flex items-start space-x-2 bg-gray-200 rounded-lg p-2"> {/* Update 3 */}
-                  <CharacterAvatar character="Risk" /> {/* Update 3 */}
-                  <div className="flex flex-col"> {/* Update 3 */}
-                    <p className="font-semibold">Risk</p> {/* Update 3 */}
-                    <p>{explanation}</p> {/* Update 3 */}
-                  </div> {/* Update 3 */}
-                </div> {/* Update 3 */}
-              </div> {/* Update 3 */}
-              <div className="flex justify-start"> {/* Update 3 */}
-                <div className="flex items-start space-x-2 bg-gray-200 rounded-lg p-2"> {/* Update 3 */}
-                  <CharacterAvatar character="Risk" /> {/* Update 3 */}
-                  <div className="flex flex-col"> {/* Update 3 */}
-                    <p className="font-semibold">Risk</p> {/* Update 3 */}
+            <div className="space-y-4">
+              <div className="flex justify-start">
+                <div className="flex items-start space-x-2 bg-gray-200 rounded-lg p-2">
+                  <CharacterAvatar character="Risk" />
+                  <div className="flex flex-col">
+                    <p className="font-semibold">Risk</p>
+                    <p>{explanation}</p>
+                  </div>
+                </div>
+              </div>
+              <div className="flex justify-start">
+                <div className="flex items-start space-x-2 bg-gray-200 rounded-lg p-2">
+                  <CharacterAvatar character="Risk" />
+                  <div className="flex flex-col">
+                    <p className="font-semibold">Risk</p>
                     <p>
-						Os comportamentos e competências testadas foram: 
-						<p><b>Competência Autodomínio(Criatividade):</b></p>
+                      Os comportamentos e competências testadas foram: 
+						<p><b>Competência <a href="https://wantu.knowfuture.tech/criatividade#card-4zcqb36u3vlwgzr" target="_blank" rel="noopener noreferrer">Autodomínio</a> (Criatividade):</b></p>
 						<p>1. Inteligência Emocional</p>
 						<p>2. Aceitação de Riscos</p>
 						<p>3. Resiliência</p>
 						<p>4. Autocontrole</p>
-						<p><b>Competência Conformidade (Produtividade):</b></p>
+						<p><b>Competência <a href="https://wantu.knowfuture.tech/produtividade#card-tl8j9dyrms4s09w" target="_blank" rel="noopener noreferrer">Conformidade</a> (Produtividade):</b></p>
 						<p>1. Cauteloso</p>
 						<p>2. Prudente</p>
 						<p>3. Reflexivo</p>
 						<p>4. Impulsivo</p>
-						
-                    </p> {/* Update 3 */}
-                  </div> {/* Update 3 */}
-                </div> {/* Update 3 */}
-              </div> {/* Update 3 */}
-              <div className="flex justify-start mt-4"> {/* Update 4 */}
-                <div className="flex items-start space-x-2 bg-gray-200 rounded-lg p-2"> {/* Update 4 */}
-                  <CharacterAvatar character="Risk" /> {/* Update 4 */}
-                  <div className="flex flex-col"> {/* Update 4 */}
-                    <p className="font-semibold">Risk</p> {/* Update 4 */}
-                    <p>Obrigado por participar! Espero que essas informações tenham sido úteis para você.</p> {/* Update 4 */}
-                  </div> {/* Update 4 */}
-                </div> {/* Update 4 */}
-              </div> {/* Update 4 */}
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="flex justify-start mt-4">
+                <div className="flex items-start space-x-2 bg-gray-200 rounded-lg p-2">
+                  <CharacterAvatar character="Risk" />
+                  <div className="flex flex-col">
+                    <p className="font-semibold">Risk</p>
+                    <p>Obrigado por participar! Espero que essas informações tenham sido úteis para você.</p>
+                  </div>
+                </div>
+              </div>
             </div>
           )}
         </div>
@@ -196,7 +199,9 @@
 
     function ChatInterface() {
       const [messages, setMessages] = React.useState([
-        { character: 'Risk', text: 'Olá! Bem-vindos ao bate-papo entre Rui, Ana e Cris.' },
+        { character: 'Risk', text: 
+			'Olá! Bem-vindos ao bate-papo entre Rui, Ana e Cris. Iremos testar as suas habilidade em **Autodomínio e Conformidade**' 
+		},
         { character: 'Risk', text: 'Vamos iniciar o bate-papo?', isButton: true }
       ]);
       const [currentQuestion, setCurrentQuestion] = React.useState(0);
@@ -217,37 +222,44 @@
           [answer.competency]: Math.min(prev[answer.competency] + 1, 4)
         }));
         setShowAnswers(false);
-        setCurrentQuestion(prev => prev + 1);
-        if (currentQuestion < QUESTIONS.length - 1) {
-          simulateTyping();
-        } else {
-          setShowResult(true);
-        }
+        //Avança para a próxima pergunta 
+        
+        setCurrentQuestion(prev => {
+          const next = prev + 1;
+          if (next < QUESTIONS.length) {
+            setTimeout(() => simulateTyping(next), 1000);
+          } else {
+            setShowResult(true);
+          }
+          return next;
+        });
       };
 
-      const simulateTyping = () => {
+      const simulateTyping = (questionIndex) => {
         setIsTyping(true);
         setTimeout(() => {
           setIsTyping(false);
-          addMessage(QUESTIONS[currentQuestion].character, QUESTIONS[currentQuestion].text);
-          setIsTyping(true);
-          setTimeout(() => {
-            setIsTyping(false);
-            addMessage('Risk', 'Qual das respostas você escolheria?');
+          if (questionIndex < QUESTIONS.length) {
+            addMessage(QUESTIONS[questionIndex].character, QUESTIONS[questionIndex].text);
             setIsTyping(true);
             setTimeout(() => {
               setIsTyping(false);
-              setShowAnswers(true);
+              addMessage('Risk', 'Qual das respostas você escolheria?');
+              setIsTyping(true);
+              setTimeout(() => {
+                setIsTyping(false);
+                setShowAnswers(true);
+              }, 1000);
             }, 1000);
-          }, 1000);
+          } else {
+            setShowResult(true);
+          }
         }, 2000);
       };
-	  
-	  
 
       const startConversation = () => {
         setConversationStarted(true);
-        simulateTyping();
+        simulateTyping(0);
       };
 
       const TypingIndicator = () => (
@@ -325,9 +337,8 @@
                 <div key={competency} className="mb-8">
                   <div className="flex justify-between items-center mb-2">
                     <span className="font-bold text-xl">
-					          {competency === 1 ? 'Autodomínio' : 'Conformidade'}
-							  
-					</span>
+							 {competency === 1 ? 'Autodomínio' : 'Conformidade'}
+					</span>		 
                     <span className="font-bold text-lg">Score: {competencyScore[competency] * 25}%</span>
                   </div>
                   <div className="relative">
